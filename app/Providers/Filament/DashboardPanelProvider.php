@@ -53,6 +53,8 @@ class DashboardPanelProvider extends PanelProvider
                     ->shouldShowBrowserSessionsForm(),
                 EasyFooterPlugin::make()
                     ->footerEnabled()
+                    ->withLoadTime()
+                    ->withSentence('Created With ❤️ by Ngoni')
                     ->withFooterPosition('sidebar.footer'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
