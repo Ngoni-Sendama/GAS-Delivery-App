@@ -11,6 +11,7 @@ use Filament\Support\Colors\Color;
 use Awcodes\LightSwitch\LightSwitchPlugin;
 use Filament\Http\Middleware\Authenticate;
 use Illuminate\Session\Middleware\StartSession;
+use Devonab\FilamentEasyFooter\EasyFooterPlugin;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Filament\Http\Middleware\AuthenticateSession;
 use Illuminate\Routing\Middleware\SubstituteBindings;
@@ -42,14 +43,17 @@ class DashboardPanelProvider extends PanelProvider
             ->plugins([
                 LightSwitchPlugin::make(),
                 FilamentEditProfilePlugin::make()
-                ->slug('my-profile')
-                ->setTitle('My Profile')
-                ->setNavigationLabel('My Profile')
-                ->setNavigationGroup('Group Profile')
-                ->setIcon('heroicon-o-user')
-                ->setSort(10)
-                ->shouldShowDeleteAccountForm(true)
-                ->shouldShowBrowserSessionsForm(),
+                    ->slug('my-profile')
+                    ->setTitle('My Profile')
+                    ->setNavigationLabel('My Profile')
+                    ->setNavigationGroup('Group Profile')
+                    ->setIcon('heroicon-o-user')
+                    ->setSort(10)
+                    ->shouldShowDeleteAccountForm(true)
+                    ->shouldShowBrowserSessionsForm(),
+                EasyFooterPlugin::make()
+                    ->footerEnabled()
+                    ->withFooterPosition('sidebar.footer'),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')
@@ -59,9 +63,9 @@ class DashboardPanelProvider extends PanelProvider
             ->userMenuItems([
                 'profile' => MenuItem::make()
                     ->label(fn() => auth()->user()->name)
-                    ->url(fn (): string => EditProfilePage::getUrl())
+                    ->url(fn(): string => EditProfilePage::getUrl())
                     ->icon('heroicon-m-user-circle')
-                    
+
             ])
             ->discoverWidgets(in: app_path('Filament/Widgets'), for: 'App\\Filament\\Widgets')
             ->widgets([
