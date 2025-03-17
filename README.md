@@ -12,7 +12,7 @@
 
 -   [ ] Customers can leave reviews for shops and delivery service
 
--   [ ] Shops can view and respond to customer reviews
+-   [ ] Shops can view and respond to customer reviews (https://medium.com/geekculture/creating-ratings-and-reviews-with-laravel-6efa61d43ee3)
 
 -   [ ] Real-time tracking of delivery status for customers
 
