@@ -33,3 +33,4 @@
 -   [ ] Ratings and feedback system for shops and drivers
 
 -   [ ] Customer support through chat or phone for any issues
+-   [ ] Language Translations should be available
