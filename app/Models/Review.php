@@ -12,7 +12,7 @@ class Review extends Model
     protected $fillable = [
         'product_id',
         'comments',
-        'star-rating',
+        'star_rating',
         'status'
     ];
 }
